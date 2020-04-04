@@ -10,11 +10,15 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AddRequireComponent implements OnInit {
 
+  // inform: string = 'Такая организация уже есть'
+  inform
   requires: Require[]
-  firm: Firm[]
+  firm: Firm[] = []
   require: Require
   form: FormGroup
   arrayId = []
+  error = ''
+  item
 
   constructor(private service: ServiceService) { }
 
@@ -35,12 +39,15 @@ export class AddRequireComponent implements OnInit {
       location: formData.location,
       firm: formData.firm
     }).subscribe(item => {
-      //console.log(item)
-      //this.togle = false
       this.firm.push(item)
+      let res = JSON.stringify(item)
+      let out = JSON.parse(res)
+      this.item = out.message
       this.form.reset()
-      this.ngOnInit()
+      
     })
+    
+    this.ngOnInit()
   }
 
 

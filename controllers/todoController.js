@@ -10,7 +10,10 @@ module.exports.searchOrCreateFirm = async(req,res) => {
 
     if(candidate){
         // Эта фирма уже есть в базе
-        res.status(409).json({
+        // res.status(409).json({
+        //     message: 'Эта фирма уже есть в базе'
+        // })
+        res.send({
             message: 'Эта фирма уже есть в базе'
         })
     }else{

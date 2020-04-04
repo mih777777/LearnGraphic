@@ -32,9 +32,8 @@ export class AppComponent {
       this.require.push(todo)
       this.form.reset()
       //this.togle = false
-      this.ngOnInit()
-      
     })
+    this.ngOnInit()
   }
 
 

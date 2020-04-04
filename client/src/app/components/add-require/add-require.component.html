@@ -1,6 +1,17 @@
 <div class="center">
   <h3>Страница добавления</h3><br>
     <div>
+      <div >
+
+        {{item}}
+        <!-- <h2 style="color: green;">{{inform}}</h2> -->
+        <!-- <p *ngIf="error; else sucsessBlock" class="error">{{error}}</p>
+
+        <ng-template #sucsessBlock>
+            <h2>Успешно !</h2>
+        </ng-template> -->
+      </div>
+      
       <form [formGroup]="form" (ngSubmit)="createLocation()">
           <div class="form-group">
             <input 
