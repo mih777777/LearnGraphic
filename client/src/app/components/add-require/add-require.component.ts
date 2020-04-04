@@ -42,8 +42,10 @@ export class AddRequireComponent implements OnInit {
 
   updateMany() {
     for(let i = 0; i < this.arrayId.length; i++){
-      this.service.updateRequire(this.arrayId[i]._id, this.arrayId[i].count).subscribe(() => {})
-      this.ngOnInit()
+      this.service.updateRequire(this.arrayId[i]._id, this.arrayId[i].count).subscribe(() => {
+        this.ngOnInit()
+      })
+      
     }
   }
 

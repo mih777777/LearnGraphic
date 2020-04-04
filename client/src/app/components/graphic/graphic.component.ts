@@ -45,7 +45,7 @@ export class GraphicComponent implements AfterViewInit, OnInit {
             labels: this.arr,
             datasets: [{
                 label: 'My First dataset',
-                backgroundColor: [0,'yellow','pink', 'green'],
+                backgroundColor: '#8B42D6',
                 borderColor: 'rad',
                 data: this.arr2
             }]
