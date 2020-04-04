@@ -1,0 +1,34 @@
+<div class="center">
+    <div class="block" >
+        <br>
+        <ul>
+            <li><a [routerLink]="['/add-advert']">Добавить обьявление</a></li>
+            <li>
+                <a 
+                    href="" 
+                    onclick="event.preventDefault()"
+                    (click)="togle = !togle"
+                >Новый навык</a>
+            </li>
+            <li><a [routerLink]="['/diagram']">Показать график</a></li>
+        </ul>
+    </div>
+    <div *ngIf="togle">
+        <form [formGroup]="form" (ngSubmit)="addSkill()">
+            <div class="form-group">
+              <input 
+                formControlName="title"
+                type="email" 
+                class="form-control"   
+                placeholder="Enter skill"
+              >
+            </div>
+            <button 
+                type="submit" 
+                class="btn btn-primary"
+            >add</button>
+        </form>
+    </div>
+    <hr>
+    <router-outlet></router-outlet>
+</div>

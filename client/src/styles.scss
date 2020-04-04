@@ -1,0 +1,18 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+a {
+    color: #10447b;
+}
+
+.center {
+    margin: 0 auto;
+    max-width: 1000px;
+    
+    height: 1000px;
+}
+
+ul li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 5px; /* Отступ слева */
+    padding: 3px; /* Поля вокруг текста */
+}

@@ -1,0 +1,27 @@
+<h3>Страница добавления</h3><br>
+<div >
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">enable</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of requires; let i = index">
+            <tr>
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ item.title }} | <small>{{ item.count }}</small></td>
+                <td><input type="checkbox" (click)="changeIsChecked( item )"></td>
+              </tr>
+        </tbody>
+      </table>
+
+      <button 
+        type="submit" 
+        class="btn btn-primary"
+        
+        (click)="updateMany()"
+      >Добавить</button><!-- (click)="updateSeveral()" -->
+</div>
+
