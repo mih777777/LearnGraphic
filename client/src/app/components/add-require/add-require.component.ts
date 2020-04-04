@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceService, Require } from '../../service.service'
+import { ServiceService, Require, Firm } from '../../service.service'
+import { FormControl, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-add-require',
@@ -9,16 +11,39 @@ import { ServiceService, Require } from '../../service.service'
 export class AddRequireComponent implements OnInit {
 
   requires: Require[]
+  firm: Firm[]
   require: Require
-
+  form: FormGroup
   arrayId = []
 
   constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
+    
     this.fetch()
+    this.form = new FormGroup({
+      location: new FormControl(''),
+      firm: new FormControl('')
+    })
     
   }
+
+  createLocation(){
+    const formData = {...this.form.value}
+
+    this.service.searchOrCreate({
+      location: formData.location,
+      firm: formData.firm
+    }).subscribe(item => {
+      //console.log(item)
+      //this.togle = false
+      this.firm.push(item)
+      this.form.reset()
+      this.ngOnInit()
+    })
+  }
+
+
 
   fetch(){
     this.service.getAll()

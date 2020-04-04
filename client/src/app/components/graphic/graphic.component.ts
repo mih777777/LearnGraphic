@@ -38,21 +38,52 @@ export class GraphicComponent implements AfterViewInit, OnInit {
     //var chart = 
     new Chart(ctx, {
         // The type of chart we want to create
+        //type: 'Horizontal',
         type: 'bar',
 
         // The data for our dataset
         data: {
             labels: this.arr,
             datasets: [{
-                label: 'My First dataset',
+                barPercentage: 0.5,
+                categoryPercentage: 0.8,
+                barThickness: 16,
+                maxBarThickness: 8,
+                minBarLength: 0.5,
+              
+                borderSkipped: 'bottom',
+                borderWidth: '2',
+                label: 'must Learn',
+                order: 0,
                 backgroundColor: '#8B42D6',
-                borderColor: 'rad',
+                borderColor: 'rgba(0, 0, 0, 0.1)',
                 data: this.arr2
             }]
         },
 
         // Configuration options go here
-        options: {  }
+        options: { 
+          tooltips: {
+              mode: 'index',
+              axis: 'y'
+          },
+            scales: {
+              xAxes: [{
+                  gridLines: {
+                      offsetGridLines: true
+                  }
+              }] 
+          },
+
+          
+
+
+        }
+
+
+
+
+
     });
   }
 

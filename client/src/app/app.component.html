@@ -1,4 +1,4 @@
-<div class="center">
+<div >
     <div class="block" >
         <br>
         <ul>
@@ -12,7 +12,7 @@
             </li>
             <li><a [routerLink]="['/diagram']">Показать график</a></li>
         </ul>
-    </div>
+    
     <div *ngIf="togle">
         <form [formGroup]="form" (ngSubmit)="addSkill()">
             <div class="form-group">
@@ -28,6 +28,7 @@
                 class="btn btn-primary"
             >add</button>
         </form>
+    </div>
     </div>
     <hr>
     <router-outlet></router-outlet>

@@ -28,11 +28,14 @@ export class AppComponent {
       title: formData.title,
       count: 1
     }).subscribe(todo => {
-      console.log(todo)
-      this.togle = false
+
       this.require.push(todo)
       this.form.reset()
+      //this.togle = false
       this.ngOnInit()
+      
     })
   }
-}
+
+
+} //end of class

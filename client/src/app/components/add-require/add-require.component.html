@@ -1,27 +1,52 @@
-<h3>Страница добавления</h3><br>
-<div >
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">enable</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let item of requires; let i = index">
-            <tr>
-                <th scope="row">{{ i + 1 }}</th>
-                <td>{{ item.title }} | <small>{{ item.count }}</small></td>
-                <td><input type="checkbox" (click)="changeIsChecked( item )"></td>
+<div class="center">
+  <h3>Страница добавления</h3><br>
+    <div>
+      <form [formGroup]="form" (ngSubmit)="createLocation()">
+          <div class="form-group">
+            <input 
+              formControlName="firm"
+              type="email" 
+              class="form-control"   
+              placeholder="Organization"
+            >
+          </div>
+          <div class="form-group">
+            <input 
+              formControlName="location"
+              type="email" 
+              class="form-control"   
+              placeholder="Location"
+            >
+          </div>
+          <button 
+              type="submit" 
+              class="btn btn-primary"
+          >search</button>
+      </form>
+    </div><br>
+    <div >
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">enable</th>
               </tr>
-        </tbody>
-      </table>
+            </thead>
+            <tbody *ngFor="let item of requires; let i = index">
+                <tr>
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ item.title }} | <small>{{ item.count }}</small></td>
+                    <td><input type="checkbox" (click)="changeIsChecked( item )"></td>
+                  </tr>
+            </tbody>
+          </table>
 
-      <button 
-        type="submit" 
-        class="btn btn-primary"
-        
-        (click)="updateMany()"
-      >Добавить</button><!-- (click)="updateSeveral()" -->
+          <button 
+            type="submit" 
+            class="btn btn-primary"
+            
+            (click)="updateMany()"
+          >Добавить</button><!-- (click)="updateSeveral()" -->
+    </div>
 </div>
-

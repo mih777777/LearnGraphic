@@ -4,10 +4,17 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Require {
-  id?: any,
+  id?: string,
   title?: string,
   count: number
 }
+
+export interface Firm {
+  id?: string,
+  location: string,
+  firm: string
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +25,10 @@ export class ServiceService {
 
   createRequire(require: Require): Observable<Require> {
     return this.http.post<Require>('http://localhost:3000/api/todos/create', require)
+  }
+
+  searchOrCreate(body: Firm): Observable<Firm> {
+    return this.http.post<Firm>('http://localhost:3000/api/todos/search', body)
   }
 
   getAll(): Observable<Require[]> {
@@ -40,4 +51,5 @@ export class ServiceService {
   }
 
 
-}
+}// end of class
+

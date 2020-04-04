@@ -7,7 +7,7 @@ router.get('/:id', controller.getOneById)
 router.post('/create', controller.create)
 router.delete('/delete/:id', controller.deleteTodo)
 router.put('/update/:id', controller.updateTodo)
-
+router.post('/search', controller.searchOrCreateFirm)
 
 
 module.exports = router
