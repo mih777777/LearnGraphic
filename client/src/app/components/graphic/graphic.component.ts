@@ -64,8 +64,9 @@ export class GraphicComponent implements AfterViewInit, OnInit {
         // Configuration options go here
         options: { 
           tooltips: {
-              mode: 'index',
-              axis: 'y'
+              // mode: 'index',
+              // axis: 'y'
+              mode: 'dataset'
           },
             scales: {
               xAxes: [{
@@ -74,15 +75,15 @@ export class GraphicComponent implements AfterViewInit, OnInit {
                   }
               }] 
           },
-
-          
-
+          legend: {
+              labels: {
+                  // This more specific font property overrides the global property
+                  fontColor: 'black',
+                  defaultFontSize: 20
+              }
+          }
 
         }
-
-
-
-
 
     });
   }

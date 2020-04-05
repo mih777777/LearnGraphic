@@ -1,17 +1,7 @@
 <div class="center">
   <h3>Страница добавления</h3><br>
     <div>
-      <div >
-
-        {{item}}
-        <!-- <h2 style="color: green;">{{inform}}</h2> -->
-        <!-- <p *ngIf="error; else sucsessBlock" class="error">{{error}}</p>
-
-        <ng-template #sucsessBlock>
-            <h2>Успешно !</h2>
-        </ng-template> -->
-      </div>
-      
+      <div class="item">{{item}}</div>
       <form [formGroup]="form" (ngSubmit)="createLocation()">
           <div class="form-group">
             <input 
@@ -42,21 +32,22 @@
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">enable</th>
+                <th scope="col">required</th>
               </tr>
             </thead>
             <tbody *ngFor="let item of requires; let i = index">
                 <tr>
-                    <th scope="row">{{ i + 1 }}</th>
-                    <td>{{ item.title }} | <small>{{ item.count }}</small></td>
-                    <td><input type="checkbox" (click)="changeIsChecked( item )"></td>
-                  </tr>
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td><h4>{{ item.title }} </h4></td>
+                  <td><input type="checkbox" (click)="changeIsChecked( item )"></td>
+                  <td class="count">{{ item.count }}</td>
+                </tr>
             </tbody>
           </table>
 
           <button 
             type="submit" 
             class="btn btn-primary"
-            
             (click)="updateMany()"
           >Добавить</button><!-- (click)="updateSeveral()" -->
     </div>

@@ -43,6 +43,7 @@ export class AddRequireComponent implements OnInit {
       let res = JSON.stringify(item)
       let out = JSON.parse(res)
       this.item = out.message
+      //setTimeout(this.item = '', 5000)
       this.form.reset()
       
     })
@@ -55,7 +56,9 @@ export class AddRequireComponent implements OnInit {
   fetch(){
     this.service.getAll()
       .subscribe(req => {
-        this.requires = req
+        let sortArr = req
+        console.log(sortArr.sort())
+        this.requires = sortArr.sort()
       })
   }
 

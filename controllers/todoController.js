@@ -9,10 +9,6 @@ module.exports.searchOrCreateFirm = async(req,res) => {
     })
 
     if(candidate){
-        // Эта фирма уже есть в базе
-        // res.status(409).json({
-        //     message: 'Эта фирма уже есть в базе'
-        // })
         res.send({
             message: 'Эта фирма уже есть в базе'
         })
@@ -33,49 +29,6 @@ module.exports.searchOrCreateFirm = async(req,res) => {
         })
     }
 }
-
-// module.exports.searchOrCreateFirm1 = async(req,res) => {
-//     const location = req.params.location
-//     const firm = req.params.firm
-//     await Firm.find({_id: id}, function(err, todo){
-        
-        
-//         if(err) return console.log(err);
-        
-//         res.setHeader('Access-Control-Allow-Origin', '*');
-//         res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
-//         res.json(todo)
-//     });
-// }
-
-
-// module.exports.register = async function(req, res) {
-//     // email password
-//     const candidate = await User.findOne({email: req.body.email})
-  
-//     if (candidate) {
-//       // Пользователь существует, нужно отправить ошибку
-//       res.status(409).json({
-//         message: 'Такой email уже занят. Попробуйте другой.'
-//       })
-//     } else {
-//       // Нужно создать пользователя
-//       const salt = bcrypt.genSaltSync(10)
-//       const password = req.body.password
-//       const user = new User({
-//         email: req.body.email,
-//         password: bcrypt.hashSync(password, salt)
-//       })
-  
-//       try {
-//         await user.save()
-//         res.status(201).json(user)
-//       } catch(e) {
-//         errorHandler(res, e)
-//       }
-  
-//     }
-// }
 
 
 module.exports.create = async(req,res) => {
@@ -107,7 +60,7 @@ module.exports.getAllTodos = async (req, res) => {
         res.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
         res.json(todos)
 
-    }).sort({ _id: -1 })
+    }).sort({ count: -1 })
 
 }
 
